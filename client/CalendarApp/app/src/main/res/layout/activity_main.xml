@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/black"
+            app:titleTextColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnPrevWeek"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_media_previous"
+                    app:tint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvMonthYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Month Year"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvWeatherHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnNextWeek"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_media_next"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <LinearLayout
+            android:id="@+id/headerDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="50dp"
+            android:background="@color/black">
+            <TextView android:id="@+id/tvDay0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SUN\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MON\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TUE\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="WED\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THU\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="FRI\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+            <TextView android:id="@+id/tvDay6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAT\n--" android:textColor="@color/white" android:gravity="center" android:padding="4dp" android:textSize="11sp" android:lines="2"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/calendarGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black">
+
+            <LinearLayout
+                android:id="@+id/timeLabels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <FrameLayout
+                android:id="@+id/eventsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="1440dp"
+                android:layout_marginStart="50dp" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:indeterminateTint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Add Event"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/white"
+        app:tint="@color/black" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
