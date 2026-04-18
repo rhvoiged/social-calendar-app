@@ -30,10 +30,6 @@ The server handles data storage, authentication, and communication with the clie
 * Client-server communication
 * Persistent data storage using a database
 
-## Screenshots
-
-*tba later*
-
 ## Technologies Used
 
 * Android SDK
