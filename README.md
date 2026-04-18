@@ -1,11 +1,5 @@
 # Android Project
 
-## Student Information
-
-Name: Lichinteanu Andrei
-Student ID: 1302
-Course: Android Development
-
 ## Project Title
 
 Calendar App
